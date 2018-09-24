@@ -54,11 +54,13 @@
 
         public BikeAdServiceModelExtended GetById(int id)
         {
-            var bike = this.dbContext
+            var resultBike = this.dbContext
                 .Bikes
-                .Find(id);
+                .Include(bike => bike.Seller)
+                .Where(bike => bike.Id == id)
+                .FirstOrDefault();
 
-            var bikeServiceModel = this.mapper.Map<BikeAdServiceModelExtended>(bike);
+            var bikeServiceModel = this.mapper.Map<BikeAdServiceModelExtended>(resultBike);
 
             return bikeServiceModel;
         }
