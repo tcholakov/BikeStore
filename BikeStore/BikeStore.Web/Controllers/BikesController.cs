@@ -127,7 +127,7 @@
             var bikeUpdateServiceModel = this.mapper.Map<BikeAdUpdateServiceModel>(updateBikeAdModel);
             this.bikeAdService.Update(bikeUpdateServiceModel);
 
-            return this.RedirectToAction(nameof(Index));
+            return this.RedirectToAction(nameof(Details), new { id = updateBikeAdModel.Id });
         }
     }
 }
