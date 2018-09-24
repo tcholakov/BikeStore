@@ -1,0 +1,19 @@
+﻿@model BikeAdCreateModel
+@{
+    ViewData["Title"] = "Create Bike Ad";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h4>Create a new bike ad</h4>
+            <hr />
+            <partial name="_BikeInputPartial" />
+            <button type="submit" class="btn btn-default">Create bike ad</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

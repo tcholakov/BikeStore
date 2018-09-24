@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<User> UserManager
+
+@model BikeAdDetailedViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Bike Details</h2>
+<div>
+    <div>
+        <label asp-for="Model"></label>
+        <span>@Model.Model</span>
+    </div>
+    <div>
+        <label asp-for="Types"></label>
+        @foreach (var type in Model.Types)
+        {
+            <span class="badge badge-secondary">@type</span>
+        }
+    </div>
+    <div>
+        <label asp-for="SellerUsername"></label>
+        <span>Username</span>
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <span>@Model.Price</span>
+    </div>
+    <div>
+        <label asp-for="FrameType"></label>
+        <span>@Model.FrameType</span>
+    </div>
+    <div>
+        <label asp-for="Frame"></label>
+        <span>@Model.Frame</span>
+    </div>
+    <div>
+        <label asp-for="Handlebar"></label>
+        <span>@Model.Handlebar</span>
+    </div>
+    <div>
+        <label asp-for="Brakes"></label>
+        <span>@Model.Brakes</span>
+    </div>
+    <div>
+        <label asp-for="Drivetrain"></label>
+        <span>@Model.Drivetrain</span>
+    </div>
+    <div>
+        <label asp-for="Suspension"></label>
+        <span>@Model.Suspension</span>
+    </div>
+    <div>
+        <label asp-for="Fork"></label>
+        <span>@Model.Fork</span>
+    </div>
+    @if (Model.RearSuspension != null)
+    {
+        <div>
+            <label asp-for="RearSuspension"></label>
+            <span>@Model.RearSuspension</span>
+        </div>
+    }
+    @if (Model.Seatpost != null)
+    {
+        <div>
+            <label asp-for="Seatpost"></label>
+            <span>@Model.Seatpost</span>
+        </div>
+    }
+    <div>
+        <label asp-for="Saddle"></label>
+        <span>@Model.Saddle</span>
+    </div>
+    <div>
+        <label asp-for="TireType"></label>
+        <span>@Model.TireType</span>
+    </div>
+    <div>
+        <label asp-for="Tires"></label>
+        <span>@Model.Tires</span>
+    </div>
+    <div>
+        <label asp-for="Weight"></label>
+        <span>@Model.Weight</span>
+    </div>
+    @if (Model.Gears != null)
+    {
+        <div>
+            <label asp-for="Gears"></label>
+            <span>@Model.Gears</span>
+        </div>
+    }
+    @if (Model.Battery != null)
+    {
+        <div>
+            <label asp-for="Battery"></label>
+            <span>@Model.Battery</span>
+        </div>
+    }
+    @if (Model.ElectricMotor != null)
+    {
+        <div>
+            <label asp-for="ElectricMotor"></label>
+            <span>@Model.ElectricMotor</span>
+        </div>
+    }
+    <div>
+        <label asp-for="Description"></label>
+        <div>@Model.Description</div>
+    </div>
+</div>
+@if (Model.SellerId.Equals(UserManager.GetUserId(User)))
+{
+    <a class="btn btn-success col-lg-3" role="button" asp-area="" asp-controller="Bikes" asp-action="Update" asp-route-id="@Model.Id">Update ad</a>
+    <form asp-controller="Bikes" asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <span class="col-lg-3"></span>
+        <button type="button" class="btn btn-danger col-lg-3">Delete ad</button>
+    </form>
+}

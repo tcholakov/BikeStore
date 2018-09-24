@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BikeAdShortViewModel>
+<ul>
+    @foreach (var bike in Model)
+    {
+        <li>
+            <div>
+                <label asp-for="@bike.Model"></label>
+                <a asp-area="" asp-controller="Bikes" asp-action="Details" asp-route-id="@bike.Id">@bike.Model</a>
+            </div>
+            <div>
+                <label asp-for="@bike.Types"></label>
+                @foreach (var type in bike.Types)
+                {
+                    <span class="badge badge-secondary">@type</span>
+                }
+            </div>
+            <div>
+                <label asp-for="@bike.SellerUsername"></label>
+                <span>@bike.SellerUsername</span>
+            </div>
+            <div>
+                <label asp-for="@bike.Price"></label>
+                <span>@bike.Price</span>
+            </div>
+        </li>
+    }
+</ul>

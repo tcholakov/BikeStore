@@ -1,0 +1,113 @@
+﻿@model BikeAdCreateModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Model"></label>
+    <textarea asp-for="Model" class="form-control"></textarea>
+    <span asp-validation-for="Model" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Types" class="col-lg-12"></label>
+    @foreach (BikeType bikeType in Enum.GetValues(typeof(BikeType)))
+    {
+        if (Model != null && Model.Types != null && Model.Types.Contains(bikeType))
+        {
+            @bikeType <input type="checkbox" checked="checked" name="Types" value="@bikeType" class="form-control" />
+        }
+        else
+        {
+            @bikeType <input type="checkbox" name="Types" value="@bikeType" class="form-control" />
+        }
+    }
+    <span asp-validation-for="Types" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="FrameType"></label>
+    <select asp-for="FrameType" asp-items="Html.GetEnumSelectList<FrameType>()" class="form-control"></select>
+    <span asp-validation-for="FrameType" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Frame"></label>
+    <textarea asp-for="Frame" class="form-control"></textarea>
+    <span asp-validation-for="Frame" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Handlebar"></label>
+    <textarea asp-for="Handlebar" class="form-control"></textarea>
+    <span asp-validation-for="Handlebar" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Brakes"></label>
+    <textarea asp-for="Brakes" class="form-control"></textarea>
+    <span asp-validation-for="Brakes" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Drivetrain"></label>
+    <textarea asp-for="Drivetrain" class="form-control"></textarea>
+    <span asp-validation-for="Drivetrain" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Suspension"></label>
+    <select asp-for="Suspension" asp-items="Html.GetEnumSelectList<SuspensionType>()" class="form-control"></select>
+    <span asp-validation-for="Suspension" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Fork"></label>
+    <textarea asp-for="Fork" class="form-control"></textarea>
+    <span asp-validation-for="Fork" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="RearSuspension"></label>
+    <textarea asp-for="RearSuspension" class="form-control"></textarea>
+    <span asp-validation-for="RearSuspension" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Seatpost"></label>
+    <textarea asp-for="Seatpost" class="form-control"></textarea>
+    <span asp-validation-for="Seatpost" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Saddle"></label>
+    <textarea asp-for="Saddle" class="form-control"></textarea>
+    <span asp-validation-for="Saddle" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="TireType"></label>
+    <select asp-for="TireType" asp-items="Html.GetEnumSelectList<TireType>()" class="form-control"></select>
+    <span asp-validation-for="TireType" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Weight"></label>
+    <input type="number" step="0.001" asp-for="Weight" class="form-control" />
+    <span asp-validation-for="Weight" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Gears"></label>
+    <textarea asp-for="Gears" class="form-control"></textarea>
+    <span asp-validation-for="Gears" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Battery"></label>
+    <textarea asp-for="Battery" class="form-control"></textarea>
+    <span asp-validation-for="Battery" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ElectricMotor"></label>
+    <textarea asp-for="ElectricMotor" class="form-control"></textarea>
+    <span asp-validation-for="ElectricMotor" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Tires"></label>
+    <textarea asp-for="Tires" class="form-control"></textarea>
+    <span asp-validation-for="Tires" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Description"></label>
+    <textarea asp-for="Description" class="form-control"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Price"></label>
+    <input type="number" step="0.01" asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+</div>
