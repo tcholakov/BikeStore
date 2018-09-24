@@ -51,10 +51,10 @@
 
         public BikeAdServiceModelExtended GetById(int id)
         {
-            var bike = this.bikeRepository
-                .GetById<int>(id);
-
-            var bikeServiceModel = this.mapper.Map<BikeAdServiceModelExtended>(bike);
+            var bikeServiceModel = this.bikeRepository
+                .All<User>(bike => bike.Seller)
+                .Select(bike => this.mapper.Map<BikeAdServiceModelExtended>(bike))
+                .FirstOrDefault();
 
             return bikeServiceModel;
         }
