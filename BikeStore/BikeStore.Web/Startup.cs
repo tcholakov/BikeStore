@@ -10,8 +10,6 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using BikeStore.Web.Infrastructure.Extensions;
-    using BikeStore.Data.Repository.Contracts;
-    using BikeStore.Data.Repository;
     using BikeStore.Services.Bike.Contracts;
     using BikeStore.Services.Bike;
     using AutoMapper;
@@ -46,8 +44,6 @@
             services.AddAutoMapper();
 
             services.AddScoped<DbContext, BikeStoreDbContext>();
-
-            services.AddScoped(typeof(IDbRepository<>), typeof(DbRepository<>));
 
             services.AddTransient<IBikeAdService, BikeAdService>();
         }
