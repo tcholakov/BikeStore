@@ -8,7 +8,7 @@
     {
         void Add(T entity);
 
-        IQueryable<T> All<TProperty>(Expression<Func<T, TProperty>> propertyNavigationPath);
+        IQueryable<T> All(Expression<Func<T, object>> propertyNavigationPath);
 
         IQueryable<T> All();
 

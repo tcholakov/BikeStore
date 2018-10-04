@@ -31,7 +31,7 @@
         public IEnumerable<BikeAdServiceModelExtended> GetAllBikes()
         {
             var allBikes = this.bikeRepository
-                .All<User>(bike => bike.Seller)
+                .All(bike => bike.Seller)
                 .Select(bike => this.mapper.Map<BikeAdServiceModelExtended>(bike))
                 .ToList();
 
@@ -41,7 +41,7 @@
         public IEnumerable<BikeAdServiceModelExtended> GetAllUserBikes(string userId)
         {
             var allUserBikes = this.bikeRepository
-                .All<User>(bike => bike.Seller)
+                .All(bike => bike.Seller)
                 .Where(bike => bike.SellerId.Equals(userId))
                 .Select(bike => this.mapper.Map<BikeAdServiceModelExtended>(bike))
                 .ToList();
@@ -52,7 +52,7 @@
         public BikeAdServiceModelExtended GetById(int id)
         {
             var bikeServiceModel = this.bikeRepository
-                .All<User>(bike => bike.Seller)
+                .All(bike => bike.Seller)
                 .Select(bike => this.mapper.Map<BikeAdServiceModelExtended>(bike))
                 .FirstOrDefault();
 

@@ -18,7 +18,7 @@
 
         public void Add(T entity) => this.dbContext.Set<T>().Add(entity);
 
-        public IQueryable<T> All<TProperty>(Expression<Func<T, TProperty>> propertyNavigationPath) => this.dbContext.Set<T>().Include(propertyNavigationPath);
+        public IQueryable<T> All(Expression<Func<T, object>> propertyNavigationPath) => this.dbContext.Set<T>().Include(propertyNavigationPath);
 
         public IQueryable<T> All() => this.dbContext.Set<T>();
 
